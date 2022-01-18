@@ -48,8 +48,8 @@ router.route("/put/").put ( async  (req, res) =>{
         address:{city:req.body.addressCity},
         company:{name:req.body.companyName}
     });
-    console.log(newUser);
-    const users = await User.findOneAndUpdate(req.body.id, newUser);
+    console.log(req.body.id);
+    const users = await User.findOneAndUpdate({id:req.body.id}, newUser);
     console.log(users);
     res.json(users);
     
